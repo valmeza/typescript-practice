@@ -1,22 +1,17 @@
-// object
-const person: {
-  name: string;
-  age: number;
-  hobbies: string[];
-} = {
-  name: "Valeria",
-  age: 25,
-  hobbies: ["sports", "cooking"],
-};
+// union types
+function combine(input1: number | string, input2: number | string) {
+  let result;
 
-console.log(person.name);
-
-let favoriteActivities: string[]; // strict
-favoriteActivities = ["some activity", "another activity"];
-
-let anythingYouWantArray: any[]; // flexible
-anythingYouWantArray = [1, true, "free", 4];
-
-for (let hobby of person.hobbies) {
-  console.log(hobby);
+  if (input1 === typeof "number" && input2 === typeof "number") {
+    result = input1 + input2;
+  } else {
+    result = input1.toString() + input2.toString();
+    return result;
+  }
 }
+
+const combinedAges = combine(1, 1);
+console.log(combinedAges);
+
+const combinedNames = combine("Val", "eria");
+console.log(combinedNames);
